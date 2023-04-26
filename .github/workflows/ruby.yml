@@ -36,3 +36,8 @@ jobs:
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
     - name: Run tests
       run: bundle exec rspec
+    - name: Test installation
+      run: |
+        gem install pinecone
+        echo "require 'pinecone'" > test_installation.rb
+        irb test_installation.rb
